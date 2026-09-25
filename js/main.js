@@ -115,12 +115,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openMobileDrawer() {
     mobileDrawer.classList.add('active');
+    document.body.classList.add('drawer-open');
     document.body.style.overflow = 'hidden';
   }
 
   function closeMobileDrawer() {
     mobileDrawer.classList.remove('active');
-    document.body.style.overflow = '';
+    document.body.classList.remove('drawer-open');
+    if (!document.querySelector('.modal.active, .lightbox-modal.active')) {
+      document.body.style.overflow = '';
+    }
   }
 
   if (burgerBtn) burgerBtn.addEventListener('click', openMobileDrawer);
@@ -179,13 +183,20 @@ document.addEventListener('DOMContentLoaded', () => {
   function openModal(modal) {
     if (!modal) return;
     modal.classList.add('active');
+    document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
   }
 
   function closeModal(modal) {
     if (!modal) return;
     modal.classList.remove('active');
-    document.body.style.overflow = '';
+    const remainingModal = document.querySelector('.modal.active, .lightbox-modal.active');
+    if (!remainingModal) {
+      document.body.classList.remove('modal-open');
+      if (!mobileDrawer || !mobileDrawer.classList.contains('active')) {
+        document.body.style.overflow = '';
+      }
+    }
   }
 
   openLeadModalBtns.forEach(btn => {
@@ -569,16 +580,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const cookieBanner = document.getElementById('cookieBanner');
   const acceptCookieBtn = document.getElementById('acceptCookieBtn');
 
-  if (cookieBanner && !localStorage.getItem('krisha_cookie_accepted')) {
-    setTimeout(() => {
-      cookieBanner.classList.add('show');
-    }, 1200);
+  if (cookieBanner) {
+    if (!localStorage.getItem('krisha_cookie_accepted')) {
+      setTimeout(() => {
+        cookieBanner.classList.add('show');
+      }, 500);
+    } else {
+      cookieBanner.style.display = 'none';
+    }
   }
 
   if (acceptCookieBtn) {
     acceptCookieBtn.addEventListener('click', () => {
       localStorage.setItem('krisha_cookie_accepted', '1');
-      if (cookieBanner) cookieBanner.classList.remove('show');
+      if (cookieBanner) {
+        cookieBanner.classList.remove('show');
+        setTimeout(() => {
+          cookieBanner.style.display = 'none';
+        }, 400);
+      }
     });
   }
 

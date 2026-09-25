@@ -2550,6 +2550,8 @@ button {
   width: 95%;
   max-height: 90vh;
   overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   padding: 0;
   border-radius: var(--radius-xl);
   position: relative;
@@ -2665,6 +2667,8 @@ button {
   color: var(--color-dark);
   margin-bottom: 8px;
   line-height: 1.25;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .service-detail-modal__lead {
@@ -2754,26 +2758,191 @@ button {
 }
 
 @media (max-width: 860px) {
+  .modal {
+    padding: 12px;
+  }
+
+  .modal__dialog--service-detail {
+    width: 100%;
+    max-height: 92vh;
+    border-radius: var(--radius-lg);
+  }
+
   .service-detail-modal-grid {
     grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
 
   .service-detail-modal__visual {
-    min-height: 240px;
+    min-height: 190px;
+    max-height: 220px;
+    height: 200px;
+    flex-shrink: 0;
+  }
+
+  .modal__dialog--service-detail .modal__close {
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.4rem;
   }
 
   .service-detail-modal__content {
-    padding: 24px 20px 20px;
+    padding: 20px 18px 22px;
+  }
+
+  .service-detail-modal__pretitle {
+    font-size: 0.72rem;
+    margin-bottom: 4px;
+  }
+
+  .service-detail-modal__title {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .service-detail-modal__lead {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    margin-bottom: 14px;
+  }
+
+  .service-detail-modal__bullets {
+    padding: 12px 14px;
+    gap: 8px;
+    margin-bottom: 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .sdm-bullet-item {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    gap: 8px;
+  }
+
+  .sdm-bullet-item svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .service-detail-modal__features {
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .service-detail-modal__features span {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+
+  .service-detail-modal__footer {
+    padding-top: 14px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .service-detail-modal__price-box {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .sdm-price-label {
+    font-size: 0.75rem;
+  }
+
+  .service-detail-modal__price {
+    font-size: 1.2rem;
+    color: var(--color-primary);
   }
 
   .service-detail-modal__actions {
     width: 100%;
     flex-direction: column;
+    gap: 8px;
   }
 
   .service-detail-modal__actions .btn {
     width: 100%;
     justify-content: center;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 6px;
+  }
+
+  .modal__dialog--service-detail {
+    max-height: 95vh;
+    border-radius: var(--radius-md);
+  }
+
+  .service-detail-modal__visual {
+    height: 175px;
+    min-height: 170px;
+    max-height: 180px;
+  }
+
+  .service-detail-modal__visual-footer {
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    gap: 6px;
+  }
+
+  .sdm-guarantee-badge,
+  .sdm-credit-badge {
+    font-size: 0.68rem;
+    padding: 3px 7px;
+  }
+
+  .service-detail-modal__tag {
+    top: 10px;
+    left: 10px;
+    font-size: 0.72rem;
+    padding: 3px 10px;
+  }
+
+  .service-detail-modal__content {
+    padding: 14px 12px 16px;
+  }
+
+  .service-detail-modal__title {
+    font-size: 1.15rem;
+    line-height: 1.28;
+  }
+
+  .service-detail-modal__bullets {
+    padding: 10px 10px;
+    gap: 7px;
+  }
+
+  .sdm-bullet-item {
+    font-size: 0.78rem;
+  }
+
+  .service-detail-modal__price-box {
+    padding: 8px 10px;
+  }
+
+  .service-detail-modal__price {
+    font-size: 1.1rem;
   }
 }
 
@@ -3203,7 +3372,7 @@ button {
   transform: translateX(-50%) translateY(140px);
   width: calc(100% - 40px);
   max-width: 920px;
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(15, 23, 42, 0.96);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -3217,7 +3386,8 @@ button {
   gap: 20px;
   opacity: 0;
   pointer-events: none;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  box-sizing: border-box;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, visibility 0.35s ease;
 }
 
 .cookie-banner.show {
@@ -3226,11 +3396,25 @@ button {
   pointer-events: auto;
 }
 
+/* Hide cookie banner completely whenever any modal or drawer is active */
+body.modal-open .cookie-banner,
+body.drawer-open .cookie-banner,
+.modal.active ~ .cookie-banner,
+.lightbox-modal.active ~ .cookie-banner {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateX(-50%) translateY(140px) !important;
+}
+
 .cookie-banner__text {
   font-size: 0.825rem;
   line-height: 1.5;
   color: #e2e8f0;
   flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .cookie-banner__text strong {
@@ -3240,6 +3424,7 @@ button {
 .cookie-banner__text button {
   color: #38bdf8;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .cookie-banner__actions {
@@ -3250,7 +3435,7 @@ button {
 }
 
 .cookie-banner__btn {
-  padding: 9px 22px;
+  padding: 10px 22px;
   background: var(--color-primary-light);
   color: #ffffff;
   border: none;
@@ -3258,12 +3443,64 @@ button {
   font-weight: 700;
   font-size: 0.85rem;
   cursor: pointer;
+  white-space: nowrap;
   transition: var(--transition-fast);
 }
 
 .cookie-banner__btn:hover {
   background: var(--color-primary-hover);
   box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+}
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    bottom: 12px;
+    width: calc(100% - 24px);
+    max-width: calc(100% - 24px);
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    border-radius: var(--radius-md);
+  }
+
+  .cookie-banner__text {
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .cookie-banner__actions {
+    width: 100%;
+  }
+
+  .cookie-banner__btn {
+    width: 100%;
+    padding: 11px 16px;
+    font-size: 0.85rem;
+    text-align: center;
+    border-radius: var(--radius-md);
+    white-space: normal;
+  }
+}
+
+@media (max-width: 400px) {
+  .cookie-banner {
+    bottom: 8px;
+    width: calc(100% - 16px);
+    max-width: calc(100% - 16px);
+    padding: 12px 12px;
+    gap: 10px;
+  }
+
+  .cookie-banner__text {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .cookie-banner__btn {
+    padding: 9px 12px;
+    font-size: 0.82rem;
+  }
 }
 
 /* Footer Legal Links & Requisites */
