@@ -190,6 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   openLeadModalBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+      closeMobileDrawer();
       const service = btn.getAttribute('data-service') || 'Консультация инженера';
       if (modalServiceInput) modalServiceInput.value = service;
       
