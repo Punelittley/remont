@@ -736,14 +736,6 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollProgress.style.width = `${progress}%`;
     }
 
-    // Header styling on scroll
-    if (header) {
-      if (scrolled > 30) {
-        header.style.boxShadow = '0 8px 24px rgba(15, 23, 42, 0.08)';
-      } else {
-        header.style.boxShadow = 'none';
-      }
-    }
 
     // Scroll to Top visibility
     if (scrollTopBtn) {
