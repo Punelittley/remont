@@ -199,25 +199,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  openLeadModalBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      closeMobileDrawer();
-      const service = btn.getAttribute('data-service') || 'Консультация инженера';
-      if (modalServiceInput) modalServiceInput.value = service;
-      
-      // Auto select dropdown
-      if (modalInterestSelect) {
-        if (service.includes('Навес')) modalInterestSelect.value = 'canopy';
-        else if (service.includes('заборов') || service.includes('Комплекс') || service.includes('сайдинг')) modalInterestSelect.value = 'complex';
-        else if (service.includes('Кров') || service.includes('Крыш')) modalInterestSelect.value = 'roof';
-        else if (service.includes('Бан')) modalInterestSelect.value = 'banya';
-        else if (service.includes('Забор')) modalInterestSelect.value = 'fence';
-        else if (service.includes('Сайдинг')) modalInterestSelect.value = 'siding';
-        else if (service.includes('Окн')) modalInterestSelect.value = 'window';
-        else if (service.includes('Рассрочк') || service.includes('Кредит')) modalInterestSelect.value = 'credit';
-      }
+  function closeAllActiveModals() {
+    if (typeof closeMobileDrawer === 'function') closeMobileDrawer();
+    document.querySelectorAll('.modal.active, .lightbox-modal.active, .mobile-drawer.active').forEach(m => {
+      m.classList.remove('active');
+    });
+    document.body.classList.remove('modal-open', 'drawer-open');
+    document.body.style.overflow = '';
+  }
 
-      openModal(leadModal);
+  window.closeAllModals = closeAllActiveModals;
+  window.closeModal = closeModal;
+  window.openModal = openModal;
+  window.closeMobileDrawer = closeMobileDrawer;
+
+  // Universal close modal & drawer handlers (Capture Phase guarantees execution before any bubbling stop)
+  document.addEventListener('click', (e) => {
+    const isCloseBtn = e.target.closest('#closeDrawer, #closeServiceDetailModal, #closeLeadModal, #closeCityModal, #closeLightboxBtn, #closePrivacyModal, #closeConsentModal, #closeOfferModal, .modal__close, .mobile-drawer__close, .lightbox-modal__close');
+    if (isCloseBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeAllActiveModals();
+      return;
+    }
+
+    // Click on backdrop/overlay
+    if (e.target.classList.contains('modal__overlay') || e.target.classList.contains('lightbox-modal__overlay') || e.target === mobileDrawer) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeAllActiveModals();
+    }
+  }, true);
+
+  // Fast touch support for mobile WebKit
+  document.addEventListener('touchend', (e) => {
+    const isCloseBtn = e.target.closest('#closeDrawer, #closeServiceDetailModal, #closeLeadModal, #closeCityModal, #closeLightboxBtn, #closePrivacyModal, #closeConsentModal, #closeOfferModal, .modal__close, .mobile-drawer__close, .lightbox-modal__close');
+    if (isCloseBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeAllActiveModals();
+    }
+  }, { passive: false, capture: true });
+
+  openLeadModalBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      closeMobileDrawer();
+      if (btn.tagName.toLowerCase() !== 'a') {
+        window.open('https://vk.ru/zabor_okno', '_blank', 'noopener,noreferrer');
+      }
     });
   });
 
@@ -397,9 +426,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sdmOrderBtn) {
       sdmOrderBtn.onclick = () => {
         closeModal(serviceDetailModal);
-        if (modalServiceInput) modalServiceInput.value = data.leadService;
-        if (modalInterestSelect) modalInterestSelect.value = data.id;
-        openModal(leadModal);
       };
     }
 
@@ -491,8 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lightboxOrderBtn) {
       lightboxOrderBtn.onclick = () => {
         closeModal(imageLightboxModal);
-        if (modalServiceInput) modalServiceInput.value = item.serviceName;
-        openModal(leadModal);
+        window.open('https://vk.ru/zabor_okno', '_blank', 'noopener,noreferrer');
       };
     }
   }
@@ -504,6 +529,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', () => closeModal(imageLightboxModal));
   if (lightboxOverlay) lightboxOverlay.addEventListener('click', () => closeModal(imageLightboxModal));
+  const lightboxImgBox = document.getElementById('lightboxImgBox');
+  if (lightboxImgBox) {
+    lightboxImgBox.addEventListener('click', (e) => {
+      if (e.target === lightboxImgBox) closeModal(imageLightboxModal);
+    });
+  }
   if (lightboxPrevBtn) lightboxPrevBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     updateLightboxView(currentLightboxIndex - 1);
