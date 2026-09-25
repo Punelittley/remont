@@ -400,15 +400,34 @@ button {
 .burger {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
-  width: 28px;
-  padding: 4px;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  padding: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  flex-shrink: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: var(--transition-fast);
+}
+
+.burger:hover,
+.burger:active {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
 }
 
 .burger span {
   display: block;
-  width: 100%;
-  height: 2px;
+  width: 22px;
+  height: 2.5px;
   background-color: var(--color-dark);
   border-radius: 2px;
   transition: var(--transition-fast);
@@ -3203,6 +3222,14 @@ button {
     height: 64px;
   }
 
+  .header__actions .open-lead-modal {
+    display: none !important;
+  }
+
+  .hero-banner-full__regions {
+    display: none !important;
+  }
+
   .hero-banner-full {
     min-height: 560px;
   }
@@ -3329,6 +3356,46 @@ button {
 }
 
 @media (max-width: 480px) {
+  .header__container {
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 8px;
+  }
+
+  .logo {
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .logo__img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .logo__title {
+    font-size: 0.92rem;
+  }
+
+  .logo__subtitle {
+    font-size: 0.62rem;
+  }
+
+  .header__actions {
+    gap: 8px;
+  }
+
+  .btn--vk-circle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .burger {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+  }
+
   .hero-banner-full {
     min-height: 580px;
   }
