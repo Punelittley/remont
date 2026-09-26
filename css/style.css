@@ -1917,9 +1917,16 @@ button {
 
 .service-card__price {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: #0f172a;
+}
+
+.service-card__price-row {
+  display: flex;
   align-items: baseline;
   gap: 4px;
-  color: #0f172a;
 }
 
 .service-card__price .price-from {
@@ -1939,6 +1946,15 @@ button {
   font-size: 0.775rem;
   color: #64748b;
   font-weight: 500;
+}
+
+.service-card__price-sub {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #0284c7;
+  letter-spacing: 0.01em;
+  margin-top: 1px;
+  line-height: 1.2;
 }
 
 .service-card__actions {
