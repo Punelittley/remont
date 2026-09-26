@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', (e) => {
       closeMobileDrawer();
       if (btn.tagName.toLowerCase() !== 'a') {
-        window.open('https://vk.ru/zabor_okno', '_blank', 'noopener,noreferrer');
+        window.open('https://vk.me/zabor_okno', '_blank', 'noopener,noreferrer');
       }
     });
   });
@@ -378,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { bold: 'Готова к парению в день установки:', text: 'растопите печь и наслаждайтесь горячим паром в тот же вечер.' }
       ],
       features: ['Есть готовые', 'По вашим размерам', 'Печь в комплекте', 'Монтаж за 1 день'],
-      price: 'от 120 000 ₽ / комплект',
+      price: 'от 239 000 ₽ / комплект',
       leadService: 'Баня БОЧКА под ключ'
     }
   };
@@ -517,7 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lightboxOrderBtn) {
       lightboxOrderBtn.onclick = () => {
         closeModal(imageLightboxModal);
-        window.open('https://vk.ru/zabor_okno', '_blank', 'noopener,noreferrer');
+        window.open('https://vk.me/zabor_okno', '_blank', 'noopener,noreferrer');
       };
     }
   }
