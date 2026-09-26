@@ -383,6 +383,25 @@ document.addEventListener('DOMContentLoaded', () => {
       features: ['Есть готовые', 'По вашим размерам', 'Печь в комплекте', 'Монтаж за 1 день'],
       price: 'от 239 000 ₽ / комплект',
       leadService: 'Баня БОЧКА под ключ'
+    },
+    naves: {
+      id: 'naves',
+      title: 'Навесы под ключ',
+      fullTitle: 'Навесы под ключ для авто, террас и дома',
+      pretitle: 'Товары и услуги',
+      tag: 'Надежная конструкция',
+      image: 'img/complex_turnkey_1.jpg',
+      lead: 'Прочные навесы из профильной трубы с покрытием из поликарбоната, профнастила или черепицы',
+      bullets: [
+        { bold: 'Стоимость конструкции:', text: 'от 170 000 руб. за конструкцию под ключ с доставкой и установкой.' },
+        { bold: 'Усиленный металлокаркас:', text: 'профильная труба 80x80 / 100x100 мм, надежные сварные фермы с антикоррозийным покрытием.' },
+        { bold: 'Любые виды кровельного покрытия:', text: 'ударопрочный сотовый/монолитный поликарбонат, профнастил или металлочерепица.' },
+        { bold: 'Рассрочка 0% без переплат:', text: 'оформление на месте без первого взноса на срок от 1 до 12 месяцев.' },
+        { bold: 'Расчет снеговых нагрузок:', text: 'устойчивость к суровым зимам и ветровым нагрузкам, гарантия по договору.' }
+      ],
+      features: ['Конструкция от 170 000 ₽', 'Усиленные фермы', 'Под ключ с монтажом', 'Поликарбонат / Профлист'],
+      price: 'от 170 000 ₽ / конструкция под ключ',
+      leadService: 'Навесы под ключ'
     }
   };
 
@@ -399,9 +418,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const sdmPrice = document.getElementById('sdmPrice');
   const sdmOrderBtn = document.getElementById('sdmOrderBtn');
 
+  let currentOpenServiceId = 'roof';
+
   function openServiceDetail(serviceId) {
     const data = servicesData[serviceId];
     if (!data || !serviceDetailModal) return;
+
+    currentOpenServiceId = serviceId;
 
     if (sdmImage) {
       sdmImage.src = data.image;
@@ -423,7 +446,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (sdmFeatures) {
-      sdmFeatures.innerHTML = data.features.map(f => `<span>${f}</span>`).join('');
+      let catName = 'этой категории';
+      let targetCat = serviceId === 'complex' ? 'naves' : serviceId;
+      if (serviceId === 'roof') catName = 'крыш';
+      else if (serviceId === 'fence') catName = 'заборов';
+      else if (serviceId === 'siding') catName = 'сайдинга';
+      else if (serviceId === 'window') catName = 'окон и дверей';
+      else if (serviceId === 'banya') catName = 'бань-бочек';
+      else if (serviceId === 'naves') catName = 'навесов';
+
+      sdmFeatures.innerHTML = data.features.map(f => `<span>${f}</span>`).join('') +
+        `<button type="button" class="sdm-gallery-link-btn" onclick="event.stopPropagation(); window.openCategoryLightbox && window.openCategoryLightbox('${targetCat}');">
+           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+           Смотреть все фото (${catName})
+         </button>`;
     }
 
     if (sdmOrderBtn) {
@@ -456,7 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeServiceDetailModalBtn) closeServiceDetailModalBtn.addEventListener('click', () => closeModal(serviceDetailModal));
   if (serviceDetailModalOverlay) serviceDetailModalOverlay.addEventListener('click', () => closeModal(serviceDetailModal));
 
-  /* ----------------- FULLSCREEN IMAGE LIGHTBOX VIEWER ----------------- */
+  /* ----------------- FULLSCREEN IMAGE LIGHTBOX VIEWER (CATEGORY ISOLATED) ----------------- */
   const imageLightboxModal = document.getElementById('imageLightboxModal');
   const lightboxOverlay = document.getElementById('lightboxOverlay');
   const closeLightboxBtn = document.getElementById('closeLightboxBtn');
@@ -469,15 +505,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxDesc = document.getElementById('lightboxDesc');
   const lightboxOrderBtn = document.getElementById('lightboxOrderBtn');
 
-  // Collect all gallery items
-  const lightboxPhotos = [];
+  // Collect all gallery items with their categories
+  const allGalleryPhotos = [];
   const galleryElements = document.querySelectorAll('.gallery-item');
 
-  galleryElements.forEach((el, index) => {
+  galleryElements.forEach((el) => {
     const img = el.querySelector('.gallery-item__img');
     const badge = el.querySelector('.gallery-item__badge');
     const caption = el.querySelector('.gallery-item__caption');
     const sub = el.querySelector('.gallery-item__sub');
+    const category = el.getAttribute('data-category') || 'roof';
 
     const itemData = {
       src: img ? img.getAttribute('src') : '',
@@ -485,21 +522,45 @@ document.addEventListener('DOMContentLoaded', () => {
       badge: badge ? badge.textContent.trim() : 'Объект компании',
       title: caption ? caption.textContent.trim() : 'Фото объекта',
       desc: sub ? sub.textContent.trim() : 'Монтаж под ключ с гарантией',
-      serviceName: caption ? caption.textContent.trim() : 'Монтаж объекта'
+      category: category
     };
-    lightboxPhotos.push(itemData);
+    allGalleryPhotos.push(itemData);
 
     el.addEventListener('click', () => {
-      openLightbox(index);
+      // Isolate view strictly to clicked photo's category (only roofs, only fences, only windows, etc.)
+      openCategoryLightbox(category, itemData.src);
     });
   });
 
+  let currentCategoryPhotos = [];
   let currentLightboxIndex = 0;
 
+  function openCategoryLightbox(category, targetSrc) {
+    if (!category || category === 'all') {
+      currentCategoryPhotos = allGalleryPhotos;
+    } else {
+      currentCategoryPhotos = allGalleryPhotos.filter(item => item.category === category);
+      if (currentCategoryPhotos.length === 0) {
+        currentCategoryPhotos = allGalleryPhotos;
+      }
+    }
+
+    let initialIndex = 0;
+    if (targetSrc) {
+      const cleanTarget = targetSrc.split('?')[0];
+      const found = currentCategoryPhotos.findIndex(item => item.src.split('?')[0] === cleanTarget);
+      if (found !== -1) initialIndex = found;
+    }
+
+    updateLightboxView(initialIndex);
+    openModal(imageLightboxModal);
+  }
+  window.openCategoryLightbox = openCategoryLightbox;
+
   function updateLightboxView(index) {
-    if (lightboxPhotos.length === 0) return;
-    currentLightboxIndex = (index + lightboxPhotos.length) % lightboxPhotos.length;
-    const item = lightboxPhotos[currentLightboxIndex];
+    if (currentCategoryPhotos.length === 0) return;
+    currentLightboxIndex = (index + currentCategoryPhotos.length) % currentCategoryPhotos.length;
+    const item = currentCategoryPhotos[currentLightboxIndex];
 
     if (lightboxImg) {
       lightboxImg.style.opacity = '0';
@@ -512,7 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 100);
     }
 
-    if (lightboxCounter) lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${lightboxPhotos.length}`;
+    if (lightboxCounter) lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${currentCategoryPhotos.length}`;
     if (lightboxBadge) lightboxBadge.textContent = item.badge;
     if (lightboxTitle) lightboxTitle.textContent = item.title;
     if (lightboxDesc) lightboxDesc.textContent = item.desc;
@@ -526,6 +587,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function openLightbox(index = 0) {
+    currentCategoryPhotos = allGalleryPhotos;
     updateLightboxView(index);
     openModal(imageLightboxModal);
   }
@@ -547,25 +609,25 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLightboxView(currentLightboxIndex + 1);
   });
 
-  // Support clicking on service modal visual image to view in lightbox
-  const zoomableImages = document.querySelectorAll('.service-detail-modal__img, .bento-stats__col-image img');
-  zoomableImages.forEach(img => {
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', () => {
-      const src = img.getAttribute('src');
-      const foundIdx = lightboxPhotos.findIndex(item => item.src === src);
-      if (foundIdx !== -1) {
-        openLightbox(foundIdx);
-      } else {
-        if (lightboxImg) lightboxImg.src = src;
-        if (lightboxCounter) lightboxCounter.textContent = '1 / 1';
-        if (lightboxBadge) lightboxBadge.textContent = 'Фото объекта';
-        if (lightboxTitle) lightboxTitle.textContent = img.getAttribute('alt') || 'Качественный монтаж';
-        if (lightboxDesc) lightboxDesc.textContent = 'Гарантия качества по договору';
-        openModal(imageLightboxModal);
-      }
+  // Support clicking on service modal image to view in lightbox (isolated by service category!)
+  const serviceDetailModalImg = document.getElementById('sdmImage');
+  if (serviceDetailModalImg) {
+    serviceDetailModalImg.style.cursor = 'zoom-in';
+    serviceDetailModalImg.title = 'Нажмите, чтобы просмотреть фото этой категории';
+    serviceDetailModalImg.addEventListener('click', () => {
+      let targetCat = currentOpenServiceId;
+      if (targetCat === 'complex') targetCat = 'naves';
+      openCategoryLightbox(targetCat, serviceDetailModalImg.getAttribute('src'));
     });
-  });
+  }
+
+  const statsImageEl = document.querySelector('.bento-stats__col-image img');
+  if (statsImageEl) {
+    statsImageEl.style.cursor = 'zoom-in';
+    statsImageEl.addEventListener('click', () => {
+      openCategoryLightbox('roof', statsImageEl.getAttribute('src'));
+    });
+  }
 
   /* ----------------- LEGAL MODALS (152-FZ, CONSENT, OFFER) ----------------- */
   const privacyModal = document.getElementById('privacyModal');
