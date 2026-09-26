@@ -19,7 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Stylesheet & Favicon -->
-  <link rel="stylesheet" href="css/style.css?v=3.5">
+  <link rel="stylesheet" href="css/style.css?v=3.6">
   <link rel="icon" type="image/png" href="img/logo.png">
 </head>
 <body>
@@ -712,8 +712,9 @@
               <div class="service-card__footer">
                 <div class="service-card__price">
                   <div class="service-card__price-row">
-                    <span class="price-from">от</span> <strong>4 900 ₽</strong> <span class="price-unit">/ окно</span>
+                    <span class="price-from">от</span> <strong>5 200 ₽</strong> <span class="price-unit">/ окно</span>
                   </div>
+                  <span class="service-card__price-sub">цена за изделие</span>
                 </div>
                 <div class="service-card__actions">
                   <button type="button" class="btn btn--sm btn-open-detail" data-service-id="window">Подробнее</button>
@@ -1263,8 +1264,28 @@
             <span class="contact-box__badge">Ежедневно: 8:00 – 21:00</span>
           </div>
 
-          <!-- Contact Card 2: VK Community -->
-          <div class="contact-box contact-box--vk" data-animate="fade-up" data-delay="100">
+          <!-- Contact Card 2: Central Office & Requisites -->
+          <div class="contact-box" data-animate="fade-up" data-delay="100">
+            <div class="contact-box__icon-svg">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 21h18M5 21V7l8-4v18M13 7l6 3v11M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/>
+              </svg>
+            </div>
+            <h3 class="contact-box__title">Центральный офис</h3>
+            <p class="contact-box__text">
+              <strong>г. Вологда, ул. Саммера, д. 3</strong><br>
+              Прием клиентов, оформление договоров, образцы материалов
+            </p>
+            <div class="contact-box__legal-info">
+              <span><strong>ИП Толстопятов Сергей Александрович</strong></span>
+              <span>ИНН: 352705779904</span>
+              <span>ОГРНИП: 326350000042040</span>
+            </div>
+            <span class="contact-box__badge">Пн–Вс: 8:00 – 21:00</span>
+          </div>
+
+          <!-- Contact Card 3: VK Community -->
+          <div class="contact-box contact-box--vk" data-animate="fade-up" data-delay="150">
             <div class="contact-box__icon-svg">
               <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
                 <path d="M15.684 0H8.316C2.992 0 0 2.992 0 8.316v7.368C0 21.008 2.992 24 8.316 24h7.368C21.008 24 24 21.008 24 15.684V8.316C24 2.992 21.008 0 15.684 0zm3.692 17.124h-1.744c-.66 0-.864-.525-2.053-1.716-1.037-1.008-1.497-1.139-1.751-1.139-.356 0-.458.102-.458.593v1.652c0 .424-.136.686-1.254.686-1.847 0-3.898-1.118-5.34-3.2-2.17-3.085-2.763-5.407-2.763-5.882 0-.254.102-.491.593-.491h1.746c.441 0 .61.203.78.678.847 2.475 2.271 4.644 2.864 4.644.22 0 .322-.102.322-.661V10.8c-.068-1.203-.712-1.305-.712-1.729 0-.203.17-.407.441-.407h2.746c.373 0 .508.203.508.644v3.475c0 .373.17.508.271.508.22 0 .407-.136.814-.542 1.271-1.424 2.186-3.627 2.186-3.627.119-.254.339-.458.78-.458h1.746c.525 0 .644.271.525.644-.22.983-2.271 3.898-2.373 4.051-.203.322-.288.475 0 .864.203.288.881.864 1.339 1.39 1.051 1.153 1.864 2.119 2.085 2.78.22.644-.119.983-.712.983z"/>
@@ -1366,6 +1387,15 @@
       <div class="footer__col">
         <h4 class="footer__heading">Контакты</h4>
         <div class="footer__contact-item">
+          <span>Центральный офис:</span>
+          <strong>г. Вологда, ул. Саммера, д. 3</strong>
+        </div>
+        <div class="footer__contact-item">
+          <span>Реквизиты:</span>
+          <strong>ИП Толстопятов С. А.</strong>
+          <small style="display:block; font-size: 0.775rem; color: #94a3b8; margin-top: 2px;">ИНН 352705779904 | ОГРНИП 326350000042040</small>
+        </div>
+        <div class="footer__contact-item">
           <span>Телефоны:</span>
           <a href="tel:+79005311616">+7 (900) 531-16-16</a>
           <a href="tel:+79965121616">+7 (996) 512-16-16</a>
@@ -1385,6 +1415,9 @@
       <div class="container footer__bottom-inner">
         <div class="footer__bottom-info">
           <div>© 2024–2026 «Заборы, крыши, сайдинг и окна». Все права защищены.</div>
+          <div style="font-size: 0.825rem; color: #94a3b8; margin-top: 4px;">
+            Центральный офис: г. Вологда, ул. Саммера, д. 3 • ИП Толстопятов Сергей Александрович • ИНН 352705779904 • ОГРНИП 326350000042040
+          </div>
           <div class="footer__regions-highlight">
             <div class="footer__regions-label">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c-4.418-5.333-7-8.667-7-12a7 7 0 1 1 14 0c0 3.333-2.582 6.667-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
@@ -1640,7 +1673,9 @@
 
         <div class="legal-requisites-box">
           <strong>Оператор персональных данных:</strong><br>
-          «Заборы, крыши, сайдинг и окна»<br>
+          Индивидуальный предприниматель Толстопятов Сергей Александрович<br>
+          ИНН: 352705779904 | ОГРНИП: 326350000042040<br>
+          Центральный офис: 160024, Вологодская обл., г. Вологда, ул. Саммера, д. 3<br>
           Регионы работы: Вологодская, Челябинская, Пензенская, Саратовская, Ульяновская, Волгоградская, Ростовская, Нижегородская, Воронежская, Тамбовская области, Краснодарский край, Ростов-на-Дону, Мордовия, Татарстан<br>
           Телефон для справок: +7 (900) 531-16-16, +7 (996) 512-16-16<br>
           Официальная страница: vk.ru/zabor_okno
@@ -1658,7 +1693,7 @@
         <button type="button" class="modal__close" id="closeConsentModal" aria-label="Закрыть" onclick="window.closeAllModals && window.closeAllModals()">&times;</button>
       </div>
       <div class="modal__body legal-text-content">
-        <p>В соответствии с требованиями Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных», настоящим я свободно, своей волей и в своем интересе выражаю конкретное, информированное и сознательное согласие Оператору («Заборы, крыши, сайдинг и окна») на обработку моих персональных данных на следующих условиях:</p>
+        <p>В соответствии с требованиями Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных», настоящим я свободно, своей волей и в своем интересе выражаю конкретное, информированное и сознательное согласие Оператору (ИП Толстопятов Сергей Александрович, ИНН 352705779904, ОГРНИП 326350000042040, г. Вологда, ул. Саммера, д. 3) на обработку моих персональных данных на следующих условиях:</p>
 
         <h3>1. Перечень данных, на обработку которых дается согласие:</h3>
         <ul>
@@ -1701,6 +1736,14 @@
 
         <h3>4. Интеллектуальные права и фотографии</h3>
         <p>Все фотографии реальных объектов, дизайн-элементы и текстовые материалы являются объектами авторских прав и интеллектуальной собственности компании. Использование материалов без письменного согласия правообладателя запрещено ст. 1229 ГК РФ.</p>
+
+        <div class="legal-requisites-box" style="margin-top: 20px;">
+          <strong>Исполнитель / Подрядчик:</strong><br>
+          Индивидуальный предприниматель Толстопятов Сергей Александрович<br>
+          ИНН: 352705779904 | ОГРНИП: 326350000042040<br>
+          Центральный офис: 160024, Вологодская обл., г. Вологда, ул. Саммера, д. 3<br>
+          Телефон для справок: +7 (900) 531-16-16, +7 (996) 512-16-16 | Сообщество: vk.ru/zabor_okno
+        </div>
       </div>
     </div>
   </div>
@@ -1730,6 +1773,6 @@
   </div>
 
   <!-- Main JavaScript File -->
-  <script src="js/main.js?v=3.5"></script>
+  <script src="js/main.js?v=3.6"></script>
 </body>
 </html>

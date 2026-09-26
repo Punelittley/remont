@@ -2462,6 +2462,19 @@ button {
   align-self: flex-start;
 }
 
+.contact-box__legal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.825rem;
+  color: #475569;
+  background: #f8fafc;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 14px;
+  border: 1px dashed #cbd5e1;
+}
+
 .vk-badge-link {
   font-size: 1.2rem;
   font-weight: 700;
