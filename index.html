@@ -2273,9 +2273,26 @@
       <button type="button" class="modal__close" id="closeServiceDetailModal" aria-label="Закрыть" onclick="window.closeAllModals && window.closeAllModals()">&times;</button>
       
       <div class="service-detail-modal-grid">
-        <!-- Visual Column -->
+        <!-- Visual Column (Photo Slider) -->
         <div class="service-detail-modal__visual">
-          <img src="" alt="" id="sdmImage" class="service-detail-modal__img">
+          <div class="sdm-slider" id="sdmSlider">
+            <div class="sdm-slider__track" id="sdmSliderTrack">
+              <div class="sdm-slider__slide">
+                <img src="" alt="" id="sdmImage" class="service-detail-modal__img">
+              </div>
+            </div>
+            
+            <button type="button" class="sdm-slider__arrow sdm-slider__arrow--prev" id="sdmSliderPrev" aria-label="Предыдущее фото">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button type="button" class="sdm-slider__arrow sdm-slider__arrow--next" id="sdmSliderNext" aria-label="Следующее фото">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+
+            <div class="sdm-slider__counter" id="sdmSliderCounter">1 / 1</div>
+            <div class="sdm-slider__dots" id="sdmSliderDots"></div>
+          </div>
+          
           <span class="service-detail-modal__tag" id="sdmTag">Хит сезона</span>
           <div class="service-detail-modal__visual-footer">
             <span class="sdm-guarantee-badge">

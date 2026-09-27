@@ -261,7 +261,18 @@ document.addEventListener('DOMContentLoaded', () => {
       fullTitle: 'Установка Крыш под ключ любой сложности',
       pretitle: 'Товары и услуги',
       tag: 'Хит сезона',
-      image: 'img/roof_product_2.jpg',
+      image: 'img/roof_metal_chocolate_timber.jpg',
+      images: [
+        'img/roof_metal_chocolate_timber.jpg',
+        'img/roof_product_2.jpg',
+        'img/roof_installation_scaffolding.jpg',
+        'img/roof_block_house_red_tiles.jpg',
+        'img/roof_profnastil_green_chimney.jpg',
+        'img/roof_siding_complex_turnkey.jpg',
+        'img/roof_product_1.png',
+        'img/wooden_house_red_roof.jpg',
+        'img/log_house_construction.jpg'
+      ],
       lead: 'Производим установку крыш под ключ любой сложности в 13 регионах РФ',
       bullets: [
         { bold: 'В наличии есть любой материал:', text: 'металлочерепица, профнастил, мягкая кровля, ондулин, доборные элементы напрямую с завода.' },
@@ -280,6 +291,15 @@ document.addEventListener('DOMContentLoaded', () => {
       pretitle: 'Товары и услуги',
       tag: 'Комплекс под ключ',
       image: 'img/complex_turnkey_1.jpg',
+      images: [
+        'img/complex_turnkey_1.jpg',
+        'img/roof_siding_complex_turnkey.jpg',
+        'img/wooden_house_red_roof.jpg',
+        'img/fence_bordo_vorota_1.jpg',
+        'img/siding_wood_grain_finished.jpg',
+        'img/window_arch_pvc_door.jpg',
+        'img/naves_car_arch_polycarb.jpg'
+      ],
       lead: 'Устанавливаем окна, крыши, заборы, сайдинг, навесы любой сложности с доставкой материалов',
       bullets: [
         { bold: 'Любая сложность конструкций:', text: 'монтаж стропильных систем, кровельного покрытия, фасадных панелей, заборов и навесов.' },
@@ -298,6 +318,16 @@ document.addEventListener('DOMContentLoaded', () => {
       pretitle: 'Товары и услуги',
       tag: 'Любая сложность',
       image: 'img/naves_car_arch_polycarb.jpg',
+      images: [
+        'img/naves_car_arch_polycarb.jpg',
+        'img/naves_garage_polycarb_amber.jpg',
+        'img/naves_gazebo_forged_polycarb.jpg',
+        'img/naves_gazebo_interior_view.jpg',
+        'img/naves_long_pavilion_forged.jpg',
+        'img/naves_shed_proflist.jpg',
+        'img/naves_metal_garage_red.jpg',
+        'img/complex_turnkey_1.jpg'
+      ],
       lead: 'Надежные автомобильные, пристенные и арочные навесы из металлопрофиля и поликарбоната',
       bullets: [
         { bold: 'Конструкции любой сложности:', text: 'арочные, односкатные, двускатные, пристенные к дому и отдельно стоящие автонавесы.' },
@@ -315,7 +345,27 @@ document.addEventListener('DOMContentLoaded', () => {
       fullTitle: 'Монтаж заборов, ворот и калиток под ключ',
       pretitle: 'Товары и услуги',
       tag: 'Быстрый монтаж',
-      image: 'img/fence_product_blue.jpg',
+      image: 'img/fence_shtaketnik_brown_double.jpg',
+      images: [
+        'img/fence_shtaketnik_brown_double.jpg',
+        'img/fence_bordo_vorota_1.jpg',
+        'img/fence_bordo_gates_brick_pillars.jpg',
+        'img/fence_shtaketnik_brown_street.jpg',
+        'img/fence_shtaketnik_green_house.png',
+        'img/fence_shtaketnik_green_garden.jpg',
+        'img/fence_kalitka_shtaketnik_brown.jpg',
+        'img/fence_profnastil_bordo_long.jpg',
+        'img/fence_profnastil_blue.jpg',
+        'img/fence_profnastil_graphite.jpg',
+        'img/fence_profnastil_grey_street.jpg',
+        'img/fence_high_grey_profnastil.png',
+        'img/fence_zinc_profnastil_vorota.png',
+        'img/fence_kalitka_green_open.jpg',
+        'img/fence_kalitka_green_lock.jpg',
+        'img/fence_kalitka_brown_lock.png',
+        'img/fence_3d_mesh_gate.jpg',
+        'img/fence_3d_green_boundary.jpg'
+      ],
       lead: 'Монтаж надежных ограждений любой сложности и конфигурации с гарантией',
       bullets: [
         { bold: 'Цена за метр погонный (только установка):', text: 'от 800 руб. за пог. м монтажа (без учета стоимости материалов).' },
@@ -334,7 +384,21 @@ document.addEventListener('DOMContentLoaded', () => {
       fullTitle: 'Установка сайдинга и фасадных панелей',
       pretitle: 'Товары и услуги',
       tag: 'Любая сложность',
-      image: 'img/siding_product_1.jpg?v=3.4',
+      image: 'img/siding_wood_grain_finished.jpg',
+      images: [
+        'img/siding_wood_grain_finished.jpg',
+        'img/siding_wood_grain_process.png',
+        'img/siding_bathhouse_after_finished.png',
+        'img/siding_bathhouse_before_frame.jpg',
+        'img/siding_facade_panels_brick.jpg',
+        'img/siding_facade_panels_sand.jpg',
+        'img/siding_blockhouse_dark_wood.jpg',
+        'img/siding_two_story_house_beige.jpg',
+        'img/siding_bathhouse_beige.jpg',
+        'img/siding_cottage_white_chocolate.jpg',
+        'img/siding_product_1.jpg',
+        'img/siding_product_2.jpg'
+      ],
       lead: 'Установим сайдинг любой сложности, есть в наличии любой фасадный материал',
       bullets: [
         { bold: 'Цена за работу (только установка):', text: 'от 750 руб. за м² монтажа (без учета стоимости материалов).' },
@@ -353,7 +417,20 @@ document.addEventListener('DOMContentLoaded', () => {
       fullTitle: 'Окна ПВХ и остекление домов и веранд',
       pretitle: 'Товары и услуги',
       tag: 'Тепло и тишина',
-      image: 'img/window_product_real.jpg',
+      image: 'img/window_arch_pvc_door.jpg',
+      images: [
+        'img/window_arch_pvc_door.jpg',
+        'img/window_laminated_wood_brick.jpg',
+        'img/window_triple_white_interior.jpg',
+        'img/window_double_pvc_sill.jpg',
+        'img/window_green_house_exterior.jpg',
+        'img/window_white_double_room.png',
+        'img/window_pvc_balcony_door.png',
+        'img/window_pvc_entry_door_white.png',
+        'img/window_pvc_entry_door_heavy.png',
+        'img/window_product_real.jpg',
+        'img/gazebo_glazed_pavilion.png'
+      ],
       lead: 'Энергосберегающие пластиковые окна и остекление веранд под ключ',
       bullets: [
         { bold: 'Стоимость (цена за изделие):', text: 'от 5 200 руб. за готовое окно ПВХ (без учета монтажных работ).' },
@@ -373,6 +450,12 @@ document.addEventListener('DOMContentLoaded', () => {
       pretitle: 'Товары и услуги',
       tag: 'В наличии и на заказ',
       image: 'img/banya_bochka_1.jpg',
+      images: [
+        'img/banya_bochka_1.jpg',
+        'img/banya_bochka_2.jpg',
+        'img/banya_bochka_parilka.png',
+        'img/banya_bochka_rest.png'
+      ],
       lead: 'Изготовим Баньку по вашим размерам! Есть готовые в наличии',
       bullets: [
         { bold: 'В стоимость входит доставка и установка:', text: 'привозим спецтехникой и монтируем на участке за 1 день.' },
@@ -390,7 +473,17 @@ document.addEventListener('DOMContentLoaded', () => {
       fullTitle: 'Навесы под ключ для авто, террас и дома',
       pretitle: 'Товары и услуги',
       tag: 'Надежная конструкция',
-      image: 'img/complex_turnkey_1.jpg',
+      image: 'img/naves_car_arch_polycarb.jpg',
+      images: [
+        'img/naves_car_arch_polycarb.jpg',
+        'img/naves_garage_polycarb_amber.jpg',
+        'img/naves_gazebo_forged_polycarb.jpg',
+        'img/naves_gazebo_interior_view.jpg',
+        'img/naves_long_pavilion_forged.jpg',
+        'img/naves_shed_proflist.jpg',
+        'img/naves_metal_garage_red.jpg',
+        'img/complex_turnkey_1.jpg'
+      ],
       lead: 'Прочные навесы из профильной трубы с покрытием из поликарбоната, профнастила или черепицы',
       bullets: [
         { bold: 'Стоимость конструкции:', text: 'от 170 000 руб. за конструкцию под ключ с доставкой и установкой.' },
@@ -418,6 +511,123 @@ document.addEventListener('DOMContentLoaded', () => {
   const sdmPrice = document.getElementById('sdmPrice');
   const sdmOrderBtn = document.getElementById('sdmOrderBtn');
 
+  // Modal Slider Elements
+  const sdmSlider = document.getElementById('sdmSlider');
+  const sdmSliderTrack = document.getElementById('sdmSliderTrack');
+  const sdmSliderPrev = document.getElementById('sdmSliderPrev');
+  const sdmSliderNext = document.getElementById('sdmSliderNext');
+  const sdmSliderCounter = document.getElementById('sdmSliderCounter');
+  const sdmSliderDots = document.getElementById('sdmSliderDots');
+
+  let sdmCurrentImages = [];
+  let sdmCurrentIndex = 0;
+
+  function initSdmSlider(images, title, category) {
+    sdmCurrentImages = (images && images.length > 0) ? images : ['img/complex_turnkey_1.jpg'];
+    sdmCurrentIndex = 0;
+
+    if (sdmSliderTrack) {
+      sdmSliderTrack.innerHTML = sdmCurrentImages.map((src, i) => `
+        <div class="sdm-slider__slide" data-index="${i}" title="Нажмите для увеличения">
+          <img src="${src}" alt="${title} фото ${i + 1}" class="service-detail-modal__img" loading="${i === 0 ? 'eager' : 'lazy'}">
+        </div>
+      `).join('');
+
+      sdmSliderTrack.querySelectorAll('.sdm-slider__slide').forEach(slide => {
+        slide.addEventListener('click', () => {
+          const idx = parseInt(slide.getAttribute('data-index'), 10) || 0;
+          const clickedSrc = sdmCurrentImages[idx];
+          if (window.openCategoryLightbox) {
+            window.openCategoryLightbox(category, clickedSrc);
+          }
+        });
+      });
+    }
+
+    const showControls = sdmCurrentImages.length > 1;
+    if (sdmSliderPrev) sdmSliderPrev.style.display = showControls ? 'flex' : 'none';
+    if (sdmSliderNext) sdmSliderNext.style.display = showControls ? 'flex' : 'none';
+    if (sdmSliderCounter) sdmSliderCounter.style.display = showControls ? 'block' : 'none';
+
+    if (sdmSliderDots) {
+      if (showControls) {
+        sdmSliderDots.style.display = 'flex';
+        sdmSliderDots.innerHTML = sdmCurrentImages.map((_, i) => `
+          <button type="button" class="sdm-slider__dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Фото ${i + 1}"></button>
+        `).join('');
+
+        sdmSliderDots.querySelectorAll('.sdm-slider__dot').forEach(dot => {
+          dot.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const idx = parseInt(dot.getAttribute('data-index'), 10);
+            goToSdmSlide(idx);
+          });
+        });
+      } else {
+        sdmSliderDots.style.display = 'none';
+        sdmSliderDots.innerHTML = '';
+      }
+    }
+
+    goToSdmSlide(0);
+  }
+
+  function goToSdmSlide(index) {
+    if (!sdmCurrentImages.length) return;
+    sdmCurrentIndex = (index + sdmCurrentImages.length) % sdmCurrentImages.length;
+
+    if (sdmSliderTrack) {
+      sdmSliderTrack.style.transform = `translateX(-${sdmCurrentIndex * 100}%)`;
+    }
+
+    if (sdmSliderCounter) {
+      sdmSliderCounter.textContent = `${sdmCurrentIndex + 1} / ${sdmCurrentImages.length}`;
+    }
+
+    if (sdmSliderDots) {
+      const dots = sdmSliderDots.querySelectorAll('.sdm-slider__dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === sdmCurrentIndex);
+      });
+    }
+  }
+
+  if (sdmSliderPrev) {
+    sdmSliderPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goToSdmSlide(sdmCurrentIndex - 1);
+    });
+  }
+
+  if (sdmSliderNext) {
+    sdmSliderNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goToSdmSlide(sdmCurrentIndex + 1);
+    });
+  }
+
+  // Touch swipe support for mobile
+  let sdmTouchStartX = 0;
+  let sdmTouchStartY = 0;
+  if (sdmSlider) {
+    sdmSlider.addEventListener('touchstart', (e) => {
+      sdmTouchStartX = e.changedTouches[0].screenX;
+      sdmTouchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    sdmSlider.addEventListener('touchend', (e) => {
+      const diffX = e.changedTouches[0].screenX - sdmTouchStartX;
+      const diffY = e.changedTouches[0].screenY - sdmTouchStartY;
+      if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX < 0) {
+          goToSdmSlide(sdmCurrentIndex + 1);
+        } else {
+          goToSdmSlide(sdmCurrentIndex - 1);
+        }
+      }
+    }, { passive: true });
+  }
+
   let currentOpenServiceId = 'roof';
 
   function openServiceDetail(serviceId) {
@@ -426,10 +636,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     currentOpenServiceId = serviceId;
 
-    if (sdmImage) {
-      sdmImage.src = data.image;
-      sdmImage.alt = data.title;
-    }
+    let targetCat = serviceId === 'complex' ? 'roof' : (serviceId === 'canopy' ? 'naves' : serviceId);
+    initSdmSlider(data.images, data.fullTitle || data.title, targetCat);
+
     if (sdmTag) sdmTag.textContent = data.tag;
     if (sdmPretitle) sdmPretitle.textContent = data.pretitle;
     if (sdmTitle) sdmTitle.textContent = data.fullTitle || data.title;
@@ -714,6 +923,12 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLightboxView(currentLightboxIndex - 1);
       } else if (e.key === 'ArrowRight') {
         updateLightboxView(currentLightboxIndex + 1);
+      }
+    } else if (serviceDetailModal && serviceDetailModal.classList.contains('active')) {
+      if (e.key === 'ArrowLeft') {
+        goToSdmSlide(sdmCurrentIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        goToSdmSlide(sdmCurrentIndex + 1);
       }
     }
   });
