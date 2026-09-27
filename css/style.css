@@ -2462,6 +2462,49 @@ button {
   align-self: flex-start;
 }
 
+.contact-box__max-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  margin-top: 14px;
+  width: 100%;
+}
+
+.max-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(99, 102, 241, 0.12) 100%);
+  border: 1.5px solid rgba(0, 102, 255, 0.25);
+  border-radius: var(--radius-md);
+  color: #1e40af;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.max-badge-pill:hover {
+  background: linear-gradient(135deg, #0066ff 0%, #4f46e5 100%);
+  border-color: #0066ff;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.25);
+}
+
+.max-badge-pill:hover .max-badge-arrow {
+  transform: translateX(3px);
+  color: #ffffff;
+}
+
+.max-badge-arrow {
+  margin-left: auto;
+  transition: transform 0.2s ease;
+  color: #3b82f6;
+}
+
 .contact-box__legal-info {
   display: flex;
   flex-direction: column;
